@@ -1,22 +1,40 @@
-import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from './utils'
+// Wrapping up our Dashboard
+// 1. Create All the other interfaces you think are needed for this board
+// 2. Using the Class, visually show the main Image above the review button.
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
 import { Price, Country } from './types'
-import  Review  from './interfaces'
 import { Permissions , LoyaltyUser } from './enums'
-import "./index.css"
-
+import  Review  from './interfaces'
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
 const container = document.querySelector('.container')
 const button = document.querySelector('button')
 const footer = document.querySelector('.footer')
 
-let isLoggedIn : boolean
+let isLoggedIn: boolean
 
+enum Permissions {
+    ADMIN = 'ADMIN', 
+    READ_ONLY = 'READ_ONLY'
+}
+
+enum LoyaltyUser {
+    GOLD_USER = 'GOLD_USER',
+    SILVER_USER = 'SILVER_USER',
+    BRONZE_USER = 'BRONZE_USER'
+}
+
+interface Review {
+    name: string; 
+    stars: number; 
+    loyaltyUser: LoyaltyUser; 
+    date: string;   
+}
 
 // Reviews
-const reviews : Review[] = [
+const reviews: Review[] = [
     {
-        name: 'Sheia',
+        name: 'Sheila',
         stars: 5,
         loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
@@ -32,33 +50,8 @@ const reviews : Review[] = [
         stars: 4,
         loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021',
-        description: 'Great hosts, location was a bit further than said.'
     },
 ]
-
-// User
-// const you: {
-//     firstName: string;
-//     lastName: string;
-//     isReturning: boolean;
-//     age: number;
-//     stayedAt: string[]
-// } = {
-//     firstName: 'Bobby',
-//     lastName: 'Brown',
-//     isReturning: true,
-//     age: 35,
-//     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
-// }
-
-// const ADMIN = 'admin'
-// const READ_ONLY = 'read-only'
-
-
-// enum Permissions {
-//     ADMIN,
-//     READ_ONLY
-// }
 
 const you = {
     firstName: 'Bobby',
@@ -69,20 +62,22 @@ const you = {
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
-//Properties
-const properties : {
+interface Property {
     image: string;
     title: string;
-    price: number;
+    price: Price;
     location: {
         firstLine: string;
         city: string;
-        code: number;
-        country: string;
-    };
-    contact: [number, string];
+        code: number | string;
+        country: Country
+    }
+    contact: [ number, string];
     isAvailable: boolean;
-}[] = [
+}
+
+// Array of Properties
+const properties : Property[] = [
     {
         image: 'images/colombia-property.jpg',
         title: 'Colombian Shack',
@@ -93,43 +88,43 @@ const properties : {
             code: 45632,
             country: 'Colombia'
         },
-        contact: [+1123495082908, 'marywinkle@gmail.com'],
+        contact: [+112343823978921, 'marywinkle@gmail.com'],
         isAvailable: true  
     },
     {
         image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
-        price: 34,
+        price: 30,
         location: {
             firstLine: 'no 23',
             city: 'Gdansk',
             code: 343903,
             country: 'Poland'
         },
-        contact: [+1123495082908, 'garydavis@hotmail.com'],
+        contact: [+1298239028490830, 'garydavis@hotmail.com'],
         isAvailable: false 
     },
     {
         image: 'images/london-property.jpg',
         title: 'London Flat',
-        price: 23,
+        price: 25,
         location: {
             firstLine: 'flat 15',
             city: 'London',
-            code: 35433,
+            code: 'SW4 5XW',
             country: 'United Kingdom',
         },
-        contact: [ +1123495082908, 'andyluger@aol.com'],
+        contact: [+34829374892553, 'andyluger@aol.com'],
         isAvailable: true
     }
 ]
 
-//functions
+// Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.firstName)
 
-//Add the properties
+// Add the properties
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div')
     card.classList.add('card')
@@ -138,7 +133,7 @@ for (let i = 0; i < properties.length; i++) {
     image.setAttribute('src', properties[i].image)
     card.appendChild(image)
     showDetails(you.permissions, card, properties[i].price)
-    propertyContainer.appendChild(card); propertyContainer.appendChild(card)
+    propertyContainer.appendChild(card)
 }
 
 let count = 0
@@ -156,19 +151,34 @@ function addReviews(array : Review[]) : void {
     }
 }
 
-
 button.addEventListener('click', () => addReviews(reviews))
 
 let currentLocation : [string, string, number] = ['London', '11.03', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
 
+// Classes
 class MainProperty {
     src: string
     title: string
     reviews: Review[]
-    constructor(src, title, reviews) {
+    constructor(src: string, title: string, reviews: Review[]) {
         this.src = src
         this.title = title
         this.reviews = reviews
     }
 }
+
+let yourMainProperty = new MainProperty(
+    'images/italian-property.jpg', 
+    'Italian House',
+    [{
+        name: 'Olive',
+        stars: 5,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
+        date: '12-04-2021'
+    }] )
+
+const mainImageContainer = document.querySelector('.main-image')
+const image = document.createElement('img')
+image.setAttribute('src', yourMainProperty.src)
+mainImageContainer.appendChild(image)
