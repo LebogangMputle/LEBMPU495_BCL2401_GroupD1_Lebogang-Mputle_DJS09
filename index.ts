@@ -4,7 +4,12 @@ const reviewTotalDisplay = document.querySelector('#reviews')
 
 let isOpen : boolean
 
-const reviews = [
+const reviews: {
+    name:string;
+    stars: number;
+    loyaltyUser: boolean;
+    date: string;
+}[] = [
     {
         name: 'Sheia',
         stars: 5,
@@ -46,8 +51,6 @@ const you: {
    age: 35
    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
-
-console.log(you.userName)
 
 
 function populateUser(isReturning : boolean, userName: string ) {
