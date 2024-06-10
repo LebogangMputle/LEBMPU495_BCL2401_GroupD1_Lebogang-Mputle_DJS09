@@ -3,6 +3,7 @@ const footer = document.querySelector('.footer')
 
 import { showReviewTotal, populateUser} from './utils'
 import { Permissions } from './enums'
+import "./index.css"
 
 let isOpen : boolean
 
