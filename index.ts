@@ -5,32 +5,28 @@ import { showReviewTotal, populateUser} from './utils'
 import { Permissions } from './enums'
 import "./index.css"
 
-let isOpen : boolean
+let isLoggedIn : boolean
 
 // Reviews
-const reviews: {
-    name:string;
-    stars: number;
-    loyaltyUser: boolean;
-    date: string;
-}[] = [
+const reviews : any[] = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
-        date: '27-03-2021'
+        loyaltyUser: LoyaltyUser.SILVER_USER,
+        date: '27-03-2021',
+        description: 'Great hosts, location was a bit further than said.'
     },
 ]
 
