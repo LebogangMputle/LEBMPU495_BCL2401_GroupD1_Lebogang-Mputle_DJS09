@@ -45,14 +45,14 @@ const reviews : any[] = [
 //     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 // }
 
-const ADMIN = 'admin'
-const READ_ONLY = 'read-only'
+// const ADMIN = 'admin'
+// const READ_ONLY = 'read-only'
 
 
-enum Permissions {
-    ADMIN,
-    READ_ONLY
-}
+// enum Permissions {
+//     ADMIN,
+//     READ_ONLY
+// }
 
 const you = {
     firstName: 'Bobby',
