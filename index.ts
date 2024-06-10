@@ -1,5 +1,6 @@
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from './utils'
 import { Price, Country } from './types'
+import  Review  from './interfaces'
 import { Permissions , LoyaltyUser } from './enums'
 import "./index.css"
 
@@ -11,18 +12,9 @@ const footer = document.querySelector('.footer')
 
 let isLoggedIn : boolean
 
-enum Permissions {
-    ADMIN = 'ADMIN', 
-    READ_ONLY = 'READ_ONLY'
-}
-enum LoyaltyUser {
-    GOLD_USER = 'GOLD_USER',
-    SILVER_USER = 'SILVER_USER',
-    BRONZE_USER = 'BRONZE_USER'
-}
 
 // Reviews
-const reviews : any[] = [
+const reviews : Review[] = [
     {
         name: 'Sheia',
         stars: 5,
