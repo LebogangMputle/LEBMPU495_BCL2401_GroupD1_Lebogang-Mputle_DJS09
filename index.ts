@@ -1,15 +1,16 @@
 // Wrapping up our Dashboard
-// add another property card. The Property should have:
-// 1 x picture of a 'Malaysian Hotel' called 'Malia Hotel'
-// It should cost 35/night
-// It's location should be 'Room 4, Malia , Malaysia, 45334'
-// The contact email should be 'lee34@gmail.com'
-// The phone number for the property should be +60349822083
-// It should not be available
+// Style the 'Get Reviews' Button
+// Make the button green
+// Make the text white
+// Give the button a 5px border radius
+// Make the button turn yellow on hover
+
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
 import { Price, Country } from './types'
 import { Permissions , LoyaltyUser } from './enums'
 import  Review  from './interfaces'
+import "./index.css"
+
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
 const container = document.querySelector('.container')
