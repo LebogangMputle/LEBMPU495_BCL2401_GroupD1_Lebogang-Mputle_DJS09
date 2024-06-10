@@ -1,5 +1,6 @@
 import { LoyaltyUser } from './enums'
 import { Price, Country } from './types'
+import "./index.css"
 
 export interface Review {
     name: string; 

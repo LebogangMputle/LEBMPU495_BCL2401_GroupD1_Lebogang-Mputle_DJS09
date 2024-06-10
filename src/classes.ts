@@ -1,4 +1,5 @@
 import { Review } from './interfaces'
+import "./index.css"
 
 export default class MainProperty {
     src: string
