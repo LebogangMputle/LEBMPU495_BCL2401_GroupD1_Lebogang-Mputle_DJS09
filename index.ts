@@ -141,14 +141,8 @@ for (let i = 0; i < properties.length; i++) {
     propertyContainer.appendChild(card); propertyContainer.appendChild(card)
 }
 
-//Broken code
 let count = 0
-function addReviews(array: {
-    name: string;
-    stars: number;
-    loyaltyUser: LoyaltyUser;
-    date: string;
-}[] ) : void {
+function addReviews(array : Review[]) : void {
     if (!count ) {
         count++
         const topTwo = getTopTwoReviews(array)
@@ -162,9 +156,19 @@ function addReviews(array: {
     }
 }
 
+
 button.addEventListener('click', () => addReviews(reviews))
 
 let currentLocation : [string, string, number] = ['London', '11.03', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
 
-
+class MainProperty {
+    src: string
+    title: string
+    reviews: Review[]
+    constructor(src, title, reviews) {
+        this.src = src
+        this.title = title
+        this.reviews = reviews
+    }
+}
