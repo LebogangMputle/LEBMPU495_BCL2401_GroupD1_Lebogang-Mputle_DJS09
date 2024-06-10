@@ -1,6 +1,3 @@
-// Wrapping up our Dashboard
-// 1. Create All the other interfaces you think are needed for this board
-// 2. Using the Class, visually show the main Image above the review button.
 import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
 import { Price, Country } from './types'
 import { Permissions , LoyaltyUser } from './enums'
