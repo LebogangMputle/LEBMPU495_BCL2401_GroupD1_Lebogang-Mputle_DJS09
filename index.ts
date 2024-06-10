@@ -1,4 +1,5 @@
-import { showReviewTotal, populateUser} from ''
+const propertyContainer = document.querySelector('.properties')
+import { showReviewTotal, populateUser} from './utils'
 
 let isOpen : boolean
 
