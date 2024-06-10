@@ -2,6 +2,7 @@ const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
 
 import { showReviewTotal, populateUser} from './utils'
+import { Permissions } from './enums'
 
 let isOpen : boolean
 
