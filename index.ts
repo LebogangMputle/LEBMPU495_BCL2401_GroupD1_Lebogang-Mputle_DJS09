@@ -44,6 +44,48 @@ const you: {
    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
 }
 
+//Properties
+const properties : {
+    image: string;
+    title: string;
+    price: number;
+    location: {
+        firstLine: string;
+        city: string;
+        code: number;
+        country: string;
+    };
+    contact: string;
+    isAvailable: boolean;
+}[] = [
+        {
+            image: '',
+            title: 'Colombian Shack',
+            price: 45,
+            location: {
+                firstLine: 'shack 37',
+                city: 'Bogota',
+                code: 45632,
+                country: 'Colombia'
+            },
+            contact: 'marywinkle@gmail.com',
+            isAvailable: true  
+        },
+        {
+            image: '',
+            title: 'Colombian Shack',
+            price: 45,
+            location: {
+                firstLine: 'shack 37',
+                city: 'Bogota',
+                code: 45632,
+                country: 'Colombia'
+            },
+            contact: 'marywinkle@gmail.com',
+            isAvailable: true  
+        }
+    ]
+
 //functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
