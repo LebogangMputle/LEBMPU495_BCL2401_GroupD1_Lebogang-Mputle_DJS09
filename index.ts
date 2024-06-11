@@ -1,16 +1,20 @@
 // Code Tidy
-import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
-import { Permissions , LoyaltyUser } from './enums'
-import { Review, Property } from './interfaces'
-import MainProperty from './classes' 
-// import "./src/index.css"
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './src/utils'
+import { Permissions , LoyaltyUser } from './src/enums'
+import { Review, Property } from './src/interfaces'
+import  MainProperty from './src/classes' 
+import "./src/index.css"
 
 
-const propertyContainer = document.querySelector('.properties')
-const reviewContainer = document.querySelector('.reviews')
-const container = document.querySelector('.container')
-const button = document.querySelector('button')
-const footer = document.querySelector('.footer')
+const propertyContainer = document.querySelector('.properties' ? '.properties' : '.no-properties' ) as HTMLElement;
+const reviewContainer = document.querySelector('.reviews' ? '.reviews' : '.no-reviews') as HTMLElement;
+
+const container = document.querySelector('.container' ?  '.container' : '.no-container') as HTMLElement;
+
+const button = document.querySelector('button' ? 'button' : '.no-button') as HTMLElement;
+
+const footer = document.querySelector('.footer') as HTMLElement;
+
 
 let isLoggedIn: boolean
 
@@ -48,7 +52,7 @@ const you = {
 // Array of Properties
 const properties : Property[] = [
     {
-        image: '/src/images/colombia-property.jpg',
+        image: './src/images/colombia-property.jpg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -61,7 +65,7 @@ const properties : Property[] = [
         isAvailable: true  
     },
     {
-        image: '/src/images/poland-property.jpg',
+        image: './src/images/poland-property.jpg',
         title: 'Polish Cottage',
         price: 30,
         location: {
@@ -74,7 +78,7 @@ const properties : Property[] = [
         isAvailable: false 
     },
     {
-        image: '/src/images/london-property.jpg',
+        image: './src/images/london-property.jpg',
         title: 'London Flat',
         price: 25,
         location: {
@@ -87,7 +91,7 @@ const properties : Property[] = [
         isAvailable: true
     },
     {
-        image: '/src/images/malaysian-hotel.jpeg',
+        image: './src/images/malaysian-hotel.jpeg',
         title: 'Malia Hotel',
         price: 35,
         location: {
@@ -140,7 +144,7 @@ footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + current
 
 
 let yourMainProperty = new MainProperty(
-    './images/italian-property.jpg', 
+    './src/images/italian-property.jpg', 
     'Italian House',
     [{
         name: 'Olive',
@@ -149,7 +153,7 @@ let yourMainProperty = new MainProperty(
         date: '12-04-2021'
     }] )
 
-const mainImageContainer = document.querySelector('.main-image');
+const mainImageContainer = document.querySelector('.main-image' ? '.main-image' : '.no-main-image') as HTMLElement;
 const image = document.createElement('img');
 image.setAttribute('src', yourMainProperty.src);
 mainImageContainer.appendChild(image);
