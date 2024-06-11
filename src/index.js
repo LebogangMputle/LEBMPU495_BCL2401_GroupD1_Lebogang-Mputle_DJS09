@@ -1,7 +1,8 @@
 // Code Tidy
-import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from './utils.js';
-import { Permissions, LoyaltyUser } from './enums.js';
-import MainProperty from './classes.js';
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews } from './utils';
+import { Permissions, LoyaltyUser } from './enums';
+import MainProperty from './classes';
+import "./src/index.css";
 const propertyContainer = document.querySelector('.properties' ? '.properties' : '.no-properties');
 const reviewContainer = document.querySelector('.reviews' ? '.reviews' : '.no-reviews');
 const container = document.querySelector('.container' ? '.container' : '.no-container');
