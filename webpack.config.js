@@ -13,7 +13,7 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader
 
 
 const config = {
-    entry: './index.ts',
+    entry: './index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
@@ -26,11 +26,11 @@ const config = {
             template: './index.html',
         }),
 
-    new CopyWebpackPlugin({
-            patterns: [
-              { from: './src/images', to: 'images' },
-            ],
-          }),
+    // new CopyWebpackPlugin({
+    //         patterns: [
+    //           { from: './src/images', to: 'images' },
+    //         ],
+    //       }),
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ],

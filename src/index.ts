@@ -1,8 +1,8 @@
 // Code Tidy
-import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './src/utils'
-import { Permissions , LoyaltyUser } from './src/enums'
-import { Review, Property } from './src/interfaces'
-import  MainProperty from './src/classes' 
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
+import { Permissions , LoyaltyUser } from './enums'
+import { Review, Property } from './interfaces'
+import  MainProperty from './classes' 
 import "./src/index.css"
 
 
