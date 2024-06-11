@@ -1,6 +1,6 @@
 import { LoyaltyUser, Permissions } from './enums'
 import { Review }  from './interfaces'
-import "./index.css"
+// import "./index.css"
 
 const reviewTotalDisplay = document.querySelector('#reviews')
 const returningUserDisplay = document.querySelector('#returning-user')

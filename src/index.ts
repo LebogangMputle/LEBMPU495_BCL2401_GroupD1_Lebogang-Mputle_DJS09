@@ -1,9 +1,9 @@
 // Code Tidy
-import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './src/utils'
-import { Permissions , LoyaltyUser } from './src/enums'
-import { Review, Property } from './src/interfaces'
-import MainProperty from './src/classes' 
-import "./src/index.css"
+import { showReviewTotal, populateUser, showDetails, getTopTwoReviews} from './utils'
+import { Permissions , LoyaltyUser } from './enums'
+import { Review, Property } from './interfaces'
+import MainProperty from './classes' 
+// import "./src/index.css"
 
 
 const propertyContainer = document.querySelector('.properties')
@@ -48,7 +48,7 @@ const you = {
 // Array of Properties
 const properties : Property[] = [
     {
-        image: 'images/colombia-property.jpg',
+        image: '/src/images/colombia-property.jpg',
         title: 'Colombian Shack',
         price: 45,
         location: {
@@ -61,7 +61,7 @@ const properties : Property[] = [
         isAvailable: true  
     },
     {
-        image: 'images/poland-property.jpg',
+        image: '/src/images/poland-property.jpg',
         title: 'Polish Cottage',
         price: 30,
         location: {
@@ -74,7 +74,7 @@ const properties : Property[] = [
         isAvailable: false 
     },
     {
-        image: 'images/london-property.jpg',
+        image: '/src/images/london-property.jpg',
         title: 'London Flat',
         price: 25,
         location: {
@@ -87,7 +87,7 @@ const properties : Property[] = [
         isAvailable: true
     },
     {
-        image: 'images/malaysian-hotel.jpeg',
+        image: '/src/images/malaysian-hotel.jpeg',
         title: 'Malia Hotel',
         price: 35,
         location: {
@@ -140,7 +140,7 @@ footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + current
 
 
 let yourMainProperty = new MainProperty(
-    'images/italian-property.jpg', 
+    './images/italian-property.jpg', 
     'Italian House',
     [{
         name: 'Olive',
@@ -149,7 +149,7 @@ let yourMainProperty = new MainProperty(
         date: '12-04-2021'
     }] )
 
-const mainImageContainer = document.querySelector('.main-image')
-const image = document.createElement('img')
-image.setAttribute('src', yourMainProperty.src)
-mainImageContainer.appendChild(image)
+const mainImageContainer = document.querySelector('.main-image');
+const image = document.createElement('img');
+image.setAttribute('src', yourMainProperty.src);
+mainImageContainer.appendChild(image);
